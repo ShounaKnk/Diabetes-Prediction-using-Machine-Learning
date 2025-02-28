@@ -39,6 +39,9 @@ def predict_diabetes(input_data):
     prediction = classifier.predict(standardized_data)[0]  # Get prediction
     return "Patient is Diabetic" if prediction == 1 else "Patient is NOT Diabetic"
 
+joblib.dump(classifier, "diabetes_model.pkl")
+joblib.dump(scaler, 'scaler.pkl')
+
 # Example test prediction
 sample_data = (1, 115, 70, 30, 96, 34.6, 0.529, 32)
 print("\nPrediction Result:", predict_diabetes(sample_data))
